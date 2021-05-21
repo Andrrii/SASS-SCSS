@@ -1,0 +1,34 @@
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+// змінна
+$bgColor:purple;
+$blockWidth:50%;
+
+body {
+    background: $bgColor;
+}
+
+.block:not(.first){
+    background:goldenrod;
+    height: 200px;
+    width: $blockWidth;
+    margin: 10px 300px 20px;
+}
+
+.first {
+    background:firebrick;
+    height: 100px; 
+    margin-bottom: 20px;
+}
+
+#central_block {
+    padding: 30px;
+    // Вложеність
+    ul{
+        list-style: none;
+    }
+}
