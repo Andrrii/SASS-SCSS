@@ -7,12 +7,43 @@
 // змінна
 $bgColor:purple;
 $blockWidth:50%;
+$mainFontSize: 1.1em;
+
+@mixin font ($weight,$color:midnightblue) {
+    font-size: $mainFontSize;
+    font-weight: $weight;
+    font-family: Arial, Helvetica,sans-serif;
+    color:$color;
+}
+
+// скільки завгодно значень
+@mixin padd($padd...) {
+    padding: $padd;
+}
+
+@mixin link($link, $hover, $active, $visited) {
+    color:$link;
+
+    &:hover {
+        color: $hover;
+    }
+
+    &:active {
+        color: $active;
+    }
+
+    &:visited {
+        color:$visited
+    }
+
+}
 
 body {
     background: $bgColor;
 }
 
 .block:not(.first){
+    @include padd(20px 40px);
     background:goldenrod;
     height: 200px;
     width: $blockWidth;
@@ -30,5 +61,20 @@ body {
     // Вложеність
     ul{
         list-style: none;
+        display: inline-block;
+        
+        li{
+            @include font (bold);
+            float: left;
+            margin-right: 10px;
+
+            &:hover {
+                color:firebrick
+            }
+        }
     }
+}
+
+a {
+    @include link(black,gold ,red ,orange )
 }
