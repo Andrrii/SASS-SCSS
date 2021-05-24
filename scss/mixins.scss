@@ -1,0 +1,41 @@
+@mixin font($weight, $color: midnightblue) {
+    font-size: $mainFontSize;
+    font-weight: $weight;
+    font-family: Arial, Helvetica, sans-serif;
+    color: $color;
+}
+
+// скільки завгодно значень
+@mixin padd($padd...) {
+    padding: $padd;
+}
+
+@mixin link($link, $hover, $active, $visited) {
+    color: $link;
+
+    &:hover {
+        color: $hover;
+    }
+
+    &:active {
+        color: $active;
+    }
+
+    &:visited {
+        color: $visited;
+    }
+}
+
+@mixin grid($cols, $margin) {
+    float: left;
+    background: blueviolet;
+    margin-right: $margin;
+    margin-bottom: $margin;
+    height: 150px;
+   // width: ((100% - (($cols-1) * $margin)) / $cols);
+
+    // отримуєм останній елемент в рядку
+    &:nth-child(#{$cols}n) {
+        margin-right: 0;
+    }
+}
